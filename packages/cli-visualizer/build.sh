@@ -8,3 +8,5 @@ TERMUX_PKG_SHA256=feae8d9b9c5c44bc15df1617a1279162755b9ef43e6c57d9cc01c1e84efb21
 # there is a package vis is a text editor. and is collided with cli-visualizer
 TERMUX_PKG_CONFLICTS="vis"
 TERMUX_PKG_DEPENDS="cmake, fftw, ncurses, pulseaudio"
+# the Makefile-based compilation since 1.8 is deprecated
+TERMUX_PKG_FORCE_CMAKE=true
