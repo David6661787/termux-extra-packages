@@ -18,5 +18,5 @@ fi
 
 # symlink all packages
 for packages in ./packages/*; do
-    ln -rs ./packages/${packages} ./termux-packages/packages/${packages}
+    ln -rs ${packages} ./termux-packages/packages/
 done
