@@ -1,8 +1,10 @@
 TERMUX_PKG_HOMEPAGE="https://wiki.gnome.org/Projects/CantarellFonts"
 TERMUX_PKG_DESCRIPTION="Cantarell fonts"
 TERMUX_PKG_LICENSE="Openfont-1.1"
+TERMUX_PKG_LICENSE_FILE="cache/usr/share/doc/fonts-cantarell/copyright"
 TERMUX_PKG_MAINTAINER="@WMCB-Tech"
 TERMUX_PKG_VERSION="0.111-3"
+TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_PLATFORM_INDEPENDENT=true
 
 # we only get the deb package from debian.org
@@ -21,6 +23,7 @@ termux_step_post_get_source(){
 }
 
 termux_step_make_install(){
-	install -Dm600 ./cache/usr/share/fonts/opentype \
-		$TERMUX_PREFIX/share/fonts
+	mkdir -p $TERMUX_PREFIX/share/fonts/opentype
+	cp -r ./cache/usr/share/fonts/opentype/cantarell \
+		$TERMUX_PREFIX/share/fonts/opentype
 }
