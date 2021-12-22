@@ -3,7 +3,7 @@
 set -e
 
 # check for packages directory
-if [ ! -d ./packages ]; then
+if [ ! -d ./packages ] && [ ! -d ./.git ]; then
     echo "Not in valid repository"
     exit 2
 fi
