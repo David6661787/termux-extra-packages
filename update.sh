@@ -13,15 +13,18 @@ if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
 fi
 
 # delete gitmodules and termux-packages repository
-for files in .gitmodules termux-packages; do
-    rm -rf ${files}
-done
+rm -rf .gitmodules
+rm -rf termux-packages
 
 echo "[*] Cloning to Termux packages repository...."
 git clone https://github.com/termux/termux-packages
 
 # clone all repositories if this file renamed to update-all.sh
 if [ "$(basename $0)" == "update-all.sh" ] || [ "$(basename $0)" == "init-all-repos.sh" ]; then
+	# delete exising directories
+	rm -rf x11-packages
+	rm -rf termux-root-packages
+
 	echo "[*] Cloning root/x11 packages...."
 	git clone https://github.com/termux/x11-packages
 	git clone https://github.com/termux/termux-root-packages
