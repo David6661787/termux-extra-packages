@@ -46,15 +46,22 @@ fi
 (flock -n 3 || exit 0
 	docker stop "$CONTAINER_NAME" >/dev/null 2>&1 || true
 
-	echo "[*] Setting up repository submodules..."
+	if [ ! -d ./termux-packages ]; then
+		echo "Run ./update.sh to continue"
+		exit 2
+	fi
 
-	OWNER=$(stat -c "%U" "$REPOROOT")
-	if [ "${OWNER}" != "$USER" ]; then
-		sudo -u $OWNER git submodule deinit --all --force
-		sudo -u $OWNER git submodule update --init
-	else
-		git submodule deinit --all --force
-		git submodule update --init
+	if [ -f .gitmodules ]; then
+		echo "[*] Setting up repository submodules..."
+
+		OWNER=$(stat -c "%U" "$REPOROOT")
+		if [ "${OWNER}" != "$USER" ]; then
+			sudo -u $OWNER git submodule deinit --all --force
+			sudo -u $OWNER git submodule update --init
+		else
+			git submodule deinit --all --force
+			git submodule update --init
+		fi
 	fi
 ) 3< "$LOCK_FILE"
 
