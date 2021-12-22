@@ -23,7 +23,7 @@ fi
 # symlink all packages
 for packages in ./packages/*; do
     echo "[*] Merging ${packages} into termux-packages/"
-    ln -rs ${packages} ./termux-packages/packages/
+    cp -r ${packages} ./termux-packages/packages/
 done
 
 # optional repositories
@@ -31,7 +31,7 @@ for repositories .root-packages .x11-packages; do
     if [ -d ${repositories} ]; then
         for packages in ${repositories}/packages/*; do
             echo "[*] Merging ${packages} in ./termux-packages/packages/"
-            ln -rs ${packages} ./termux-packages/packages/
+            cp -r ${packages} ./termux-packages/packages/
         done
     fi
 done
