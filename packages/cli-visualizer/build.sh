@@ -10,3 +10,8 @@ TERMUX_PKG_CONFLICTS="vis"
 TERMUX_PKG_DEPENDS="cmake, fftw, ncurses, pulseaudio"
 # the Makefile-based compilation since 1.8 is deprecated
 TERMUX_PKG_FORCE_CMAKE=true
+
+termux_step_pre_configure(){
+	sed -i 's/-march=x86-64//g' $TERMUX_PKG_SRCDIR/CMakeLists.txt
+	sed -i 's/-march=${VIS_COMPILER_ARCH}//g' $TERMUX_PKG_SRCDIR/CMakeLists.txt
+}
