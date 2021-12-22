@@ -25,13 +25,3 @@ for packages in ./packages/*; do
     echo "[*] Merging ${packages} into termux-packages/"
     cp -r ${packages} ./termux-packages/packages/
 done
-
-# optional repositories
-for repositories in .root-packages .x11-packages; do
-    if [ -d ${repositories} ]; then
-        for packages in ${repositories}/packages/*; do
-            echo "[*] Merging ${packages} in ./termux-packages/packages/"
-            cp -r ${packages} ./termux-packages/packages/
-        done
-    fi
-done

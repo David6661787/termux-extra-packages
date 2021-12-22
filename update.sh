@@ -19,20 +19,5 @@ rm -rf termux-packages
 echo "[*] Cloning to Termux packages repository...."
 git clone https://github.com/termux/termux-packages
 
-# clone all repositories if this file renamed to update-all.sh
-if [ "$(basename $0)" == "update-all.sh" ] || [ "$(basename $0)" == "init-all-repos.sh" ]; then
-	# delete exising directories
-	rm -rf .x11-packages
-	rm -rf .root-packages
-
-	echo "[*] Cloning root/x11 packages...."
-	git clone https://github.com/termux/x11-packages .x11-packages
-	git clone https://github.com/termux/termux-root-packages .root-packages
-
-	for repos in x11-packages termux-root-packages; do
-		rm -rf ${repos}/.git
-	done
-fi
-
 # remove .git directory to remove entanglements
 rm -rf ./termux-packages/.git
