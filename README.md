@@ -38,3 +38,9 @@ To build a package. run
 to build a specified package. `debs` will output somewhere in `termux-packages` repo. use `find` to find them
 
 Alternatively. run `merge-packages.sh` and will symlink all packages to `./termux-packages/packages` so you can run `./termux-packages/build-package.sh package-to-build` without appending leading paths
+
+# Contributing
+If adding packages here, requirements as follows:
+- Packaging related to hacking/phishing/OSINT are not allowed here!
+- Build scripts must have tab size 8, no executable permission, UTF-8 encoding [(coding guideline)](https://github.com/termux/termux-packages/wiki/Coding-guideline)
+- Useful for everyone
