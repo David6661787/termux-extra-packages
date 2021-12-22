@@ -1,0 +1,17 @@
+Binary files cli-visualizer/.git/index and cli-visualizer.mod/.git/index differ
+diff --color -uNr cli-visualizer/CMakeLists.txt cli-visualizer.mod/CMakeLists.txt
+--- cli-visualizer/CMakeLists.txt	2021-12-22 20:36:06.451760036 +0800
++++ cli-visualizer.mod/CMakeLists.txt	2021-12-22 20:38:39.091759978 +0800
+@@ -21,9 +21,9 @@
+ set(PROJECT_VERSION ${vis_version})
+ project(${PROJECT_NAME} VERSION ${vis_version} LANGUAGES CXX C)
+ 
+-if(NOT DEFINED VIS_COMPILER_ARCH)
+-    set(VIS_COMPILER_ARCH "native")
+-endif()
++#if(NOT DEFINED VIS_COMPILER_ARCH)
++#    set(VIS_COMPILER_ARCH "native")
++#endif()
+ 
+ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-omit-frame-pointer -D__extern_always_inline=inline -D_XOPEN_SOURCE_EXTENDED")
+ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb -g3 -ffast-math -march=x86-64 -mtune=generic -DVIS_LOG_DEBUG")
