@@ -22,6 +22,3 @@ git clone https://github.com/termux/termux-packages
 
 # remove .git directory to remove entanglements
 rm -rf ./termux-packages/.git
-
-# symlink build-packages.sh to this repository root
-ln -rs ./termux-packages/build-packages.sh .
