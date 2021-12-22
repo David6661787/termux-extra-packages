@@ -12,9 +12,9 @@ TERMUX_PKG_SHA256=adb7ecf66c74b52a14a08cc22bb0f9aedc157cac1ac93240f7f455e8c8edec
 # linker, which does not use symbols of linked shared libraries when resolving
 # symbols on dlopen(). See https://github.com/termux/termux-packages/issues/462.
 TERMUX_PKG_DEPENDS="libc++, openssl, c-ares, libicu, zlib"
-TERMUX_PKG_CONFLICTS="nodejs-lts, nodejs-current"
+TERMUX_PKG_CONFLICTS="nodejs, nodejs-lts, nodejs-current"
 TERMUX_PKG_BREAKS="nodejs-dev"
-TERMUX_PKG_REPLACES="nodejs-current, nodejs-dev"
+TERMUX_PKG_REPLACES="nodejs, nodejs-current, nodejs-dev"
 TERMUX_PKG_SUGGESTS="clang, make, pkg-config, python"
 TERMUX_PKG_RM_AFTER_INSTALL="lib/node_modules/npm/html lib/node_modules/npm/make.bat share/systemtap lib/dtrace"
 TERMUX_PKG_BUILD_IN_SRC=true
