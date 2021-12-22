@@ -46,9 +46,8 @@ fi
 (flock -n 3 || exit 0
 	docker stop "$CONTAINER_NAME" >/dev/null 2>&1 || true
 
-	if [ ! -d ./termux-packages ]; then
+	if [ ! -d ./termux-packages/.git ]; then
 		echo "Run ./update.sh to continue"
-		exit 2
 	fi
 
 	if [ -f .gitmodules ]; then
