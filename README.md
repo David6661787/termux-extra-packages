@@ -35,13 +35,14 @@ To build a package. run
 ```
 ./termux-packages/build-package.sh ../packages/package-to-build
 ```
-to build a specified package. `debs` will output somewhere in `termux-packages` repo. use `find` to find them
-
-Alternatively. run `merge-packages.sh` and will symlink all packages to `./termux-packages/packages` so you can run `./termux-packages/build-package.sh package-to-build` without appending leading paths
+or
+```
+./build-package.sh ../packages/package-to-build
+```
+to build a specified package. `debs` will output somewhere in `termux-packages/output` repo. use `find . -name *.deb` to find them
 
 ## Docker Container
-A script `start-builder.sh` will let you setup a pristine docker environment (script taken from termux-packages repo), will copy all packages to `termux-packages` repo and you can build normally inside the container as 
-
+A script `start-builder.sh` will let you setup a pristine docker environment (script taken from termux-packages repo), will copy/merge all packages to `termux-packages` repo and you can build normally inside the container as 
 `./build-package.sh <package-name-to-build>`
 
 # Contributing
