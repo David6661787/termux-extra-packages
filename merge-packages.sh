@@ -3,6 +3,8 @@
 # to cleanup. run cleanup.sh to clone and download termux packages repository to it's latest
 set -e
 
+cd $(dirname "$(realpath "$0")")
+
 if [ ! -d ./termux-packages/packages ]; then
     echo "Initialize termux-packages submodule repository first before merging all packages"
     exit 2

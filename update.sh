@@ -2,11 +2,7 @@
 # re-initiate termux-packages repository
 set -e
 
-# check for packages directory
-if [ ! -d ./packages ] && [ ! -d ./.git ]; then
-    echo "Not in valid repository"
-    exit 2
-fi
+cd $(dirname "$(realpath "$0")")
 
 # show help
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
@@ -26,3 +22,6 @@ git clone https://github.com/termux/termux-packages
 
 # remove .git directory to remove entanglements
 rm -rf ./termux-packages/.git
+
+# symlink build-packages.sh to this repository root
+ln -rs ./termux-packages/build-packages.sh .
