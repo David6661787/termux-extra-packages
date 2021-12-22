@@ -27,7 +27,7 @@ for packages in ./packages/*; do
 done
 
 # optional repositories
-for repositories .root-packages .x11-packages; do
+for repositories in .root-packages .x11-packages; do
     if [ -d ${repositories} ]; then
         for packages in ${repositories}/packages/*; do
             echo "[*] Merging ${packages} in ./termux-packages/packages/"
