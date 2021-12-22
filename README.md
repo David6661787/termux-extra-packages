@@ -39,6 +39,11 @@ to build a specified package. `debs` will output somewhere in `termux-packages` 
 
 Alternatively. run `merge-packages.sh` and will symlink all packages to `./termux-packages/packages` so you can run `./termux-packages/build-package.sh package-to-build` without appending leading paths
 
+## Docker Container
+A script `start-builder.sh` will let you setup a pristine docker environment (script taken from termux-packages repo), will copy all packages to `termux-packages` repo and you can build normally inside the container as 
+
+`./build-package.sh <package-name-to-build>`
+
 # Contributing
 If adding packages here, requirements as follows:
 - Packaging related to hacking/phishing/OSINT are not allowed here!
