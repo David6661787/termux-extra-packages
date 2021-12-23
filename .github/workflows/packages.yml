@@ -131,5 +131,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: termux-extra-packages-${{ matrix.target_arch }}-${{ github.sha }}
-        path: ./artifacts
+        path: ./termux-packages/output
 
