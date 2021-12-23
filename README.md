@@ -48,9 +48,11 @@ A script `start-builder.sh` will let you setup a pristine docker environment (sc
 ## Merging packages
 You can merge packages to `./termux-packages/packages/` so you can simply do `./build-package.sh <package-name-to-build>` without appending leading paths
 
-If `termux-root-packages` and `x11-packages` are detected it will also merge those. this is useful to ensure dependencies are met
-
-If you're in a docker container. you may as well manually copy them instead in `./termux-packages/packages`
+Copy all packages to `packages/` to `./termux-packages/packages`
+```
+cp -r ./packages/* ./termux-packages/packages
+```
+Before you do that you must load `termux-packages` submodule first
 
 # Contributing
 If adding packages here, requirements as follows:
