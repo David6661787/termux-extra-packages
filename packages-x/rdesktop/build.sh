@@ -6,3 +6,5 @@ TERMUX_PKG_VERSION=1.9.0
 TERMUX_PKG_SRCURL="https://github.com/rdesktop/rdesktop/releases/download/v${TERMUX_PKG_VERSION}/rdesktop-${TERMUX_PKG_VERSION}.tar.gz"
 TERMUX_PKG_SHA256=473c2f312391379960efe41caad37852c59312bc8f100f9b5f26609ab5704288
 TERMUX_PKG_DEPENDS="iconv, libgnutls, libxrandr, libxcursor, libtasn1, libnettle, libx11, pulseaudio"
+TERMUX_PKG_BUILD_IN_SRC=true
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-credssp --disable-smartcard"
