@@ -21,3 +21,11 @@ git clone https://github.com/termux/termux-packages
 
 # remove .git directory to remove entanglements
 rm -rf ./termux-packages/.git
+
+# include all repositories if the filename is 'update-all.sh'
+if [ "$(basename $0)" == "update-all.sh" ]; then
+    echo "[*] Cloning X11 repository..."
+    git clone https://github.com/termux/x11-packages .repo/x11-packages
+
+    rm -rf .repo/x11-packages/.git
+fi
