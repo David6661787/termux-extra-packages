@@ -17,6 +17,9 @@ termux_step_pre_configure(){
 	sed -i "s|/tmp|$TERMUX_PREFIX/tmp|g" ./ytfzf
 }
 
+termux_step_make_install(){
+	install -Dm700 -t $TERMUX_PREFIX/bin ./ytfzf
+
 termux_step_create_debscripts(){
 	cat >> ./postinst <<- EOT
 	# youtube-dl is the primary dependency here
