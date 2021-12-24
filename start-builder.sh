@@ -101,7 +101,7 @@ fi
 
 		# sometimes we have to enable certain features of a package while still using same package name
 		# this build environment do not overwrite files
-		if [ "${TERMUX_BUILDER_FORCE_CP:-}" -gt 1 ]; then
+		if [ "${TERMUX_BUILDER_FORCE_CP:-}" == "1" ]; then
 			if docker exec "$CONTAINER_NAME" [ -d "${PKG_DIR}" ]; then
 				echo "[*] Deleting package '$(basename "$pkg")'"
 				docker exec rm -rf "${PKG_DIR}"
