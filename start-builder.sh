@@ -98,6 +98,16 @@ fi
 
 	for pkg in ${PACKAGES}; do
 		PKG_DIR="${BUILDER_HOME}/${BUILD_ENVIRONMENT}/packages/$(basename "$pkg")"
+
+		# sometimes we have to enable certain features of a package while still using same package name
+		# this build environment do not overwrite files
+		if [ "${TERMUX_BUILDER_FORCE_CP:-}" -gt 1 ]; then
+			if docker exec "$CONTAINER_NAME" [ -d "${PKG_DIR}" ]; then
+				echo "[*] Deleting package '$(basename "$pkg")'"
+				docker exec rm -rf "${PKG_DIR}"
+			fi
+		fi
+
 		if docker exec "$CONTAINER_NAME" [ ! -d "${PKG_DIR}" ]; then
 			# docker cp -a does not work, discussed here: https://github.com/moby/moby/issues/34142
 			docker cp "$pkg" "$CONTAINER_NAME:${BUILDER_HOME}/${BUILD_ENVIRONMENT}"/packages/
@@ -105,7 +115,7 @@ fi
 			echo "[!] Package '$(basename "$pkg")' already exists in build environment. Skipping."
 		fi
 	done
-	
+
 
 	if [ $# -ge 1 ]; then
 		docker exec --interactive $DOCKER_TTY "$CONTAINER_NAME" "$@"
