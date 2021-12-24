@@ -4,8 +4,9 @@ TERMUX_PKG_LICENSE="Apache-2.0"
 TERMUX_PKG_MAINTAINER="@WMCB-Tech"
 # we get the git snapshot of master instead of a version
 _GIT_LATEST_COMMIT="7b8fbbdeb"
-TERMUX_PKG_VERSION=${_GIT_LATEST_COMMIT}
-TERMUX_PKG_SRCURL=https://github.com/neovim/neovim/archive/${TERMUX_PKG_VERSION}.tar.gz
+TERMUX_PKG_VERSION=0.7.0.${_GIT_LATEST_COMMIT}
+TERMUX_PKG_REVISION=1
+TERMUX_PKG_SRCURL=https://github.com/neovim/neovim/archive/${_GIT_LATEST_COMMIT}.tar.gz
 TERMUX_PKG_SHA256=3c5001e053c37764883e7100adb6d1915fdda056e55dd8fd78b6e1e1aaad6853
 TERMUX_PKG_DEPENDS="libiconv, libuv, luv, libmsgpack, libandroid-support, libvterm, libtermkey, libluajit, libunibilium, libtreesitter"
 TERMUX_PKG_CONFLICTS="neovim"

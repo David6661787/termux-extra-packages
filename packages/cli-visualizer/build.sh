@@ -3,8 +3,9 @@ TERMUX_PKG_DESCRIPTION="Command line visualizer."
 TERMUX_PKG_LICENSE="MIT"
 TERMUX_PKG_MAINTAINER="@WMCB-Tech"
 _GIT_LATEST_COMMIT=f555bf
-TERMUX_PKG_VERSION=${_GIT_LATEST_COMMIT}
-TERMUX_PKG_SRCURL="https://github.com/dpayne/cli-visualizer/archive/${TERMUX_PKG_VERSION}.zip"
+TERMUX_PKG_VERSION=1.8.${_GIT_LATEST_COMMIT}
+TERMUX_PKG_REVISION=1
+TERMUX_PKG_SRCURL="https://github.com/dpayne/cli-visualizer/archive/${_GIT_LATEST_COMMIT}.zip"
 TERMUX_PKG_SHA256=631bad6d85c2bf15dff07396172a586b9f89684226528387fe3c0b1ab702b6f1
 # there is a package vis is a text editor. and is collided with cli-visualizer
 TERMUX_PKG_CONFLICTS="vis"
