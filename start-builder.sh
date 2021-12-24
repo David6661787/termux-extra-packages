@@ -91,7 +91,7 @@ fi
 	PACKAGES=$(find "$REPOROOT"/packages -mindepth 1 -maxdepth 1 -type d)
 
 	# add x11 packages too in case x11-packages is initialized
-	if [ -d "$REPOROOT"/.repo/x11-packages ]; then
+	if [ -d "$REPOROOT"/.repo/x11-packages/packages ]; then
 		PACKAGES+=" $(find "$REPOROOT"/.repo/x11-packages/packages -mindepth 1 -maxdepth 1 -type d)"
 		PACKAGES+=" $(find "$REPOROOT"/packages-x -mindepth 1 -maxdepth 1 -type d)"
 	fi
