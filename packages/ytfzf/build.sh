@@ -15,6 +15,10 @@ TERMUX_PKG_PLATFORM_INDEPENDENT=true
 
 termux_step_pre_configure(){
 	sed -i "s|/tmp|$TERMUX_PREFIX/tmp|g" ./ytfzf
+
+	# do not let termux detect the makefile
+	# somehow it disrespects it
+	rm -rf ./Makefile
 }
 
 termux_step_make_install(){
